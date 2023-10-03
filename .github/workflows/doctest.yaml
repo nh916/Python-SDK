@@ -43,4 +43,7 @@ jobs:
         run: python${{ matrix.python-version }} -m pip install -e .
 
       - name: Run Doctests
-        run: python${{ matrix.python-version }} -m pytest -v -o python_paths=. --doctest-modules src/cript/
+        run: python${{ matrix.python-version }} -m pytest -o python_paths=. --doctest-modules src/cript/
+        env:
+          PY_IGNORE_IMPORTMISMATCH: 1
+

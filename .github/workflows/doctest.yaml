@@ -1,5 +1,3 @@
-# check documentation code example with pytest doctest and gives an error if a code example is wrong
-
 name: Doctest Check
 permissions: read-all
 
@@ -8,19 +6,17 @@ on:
     branches:
       - main
       - develop
-      - "*"
       - trunk-merge/**
   pull_request:
     branches:
       - main
       - develop
-      - "*"
 
 jobs:
   doctest:
     strategy:
       matrix:
-        python-version: [ 3.11 ]
+        python-version: [ 3.12 ]
         os: [ ubuntu-latest ]
 
     runs-on: ${{ matrix.os }}
@@ -33,6 +29,9 @@ jobs:
 
       - name: Check out code
         uses: actions/checkout@v4
+
+      - name: Clear __pycache__ and *.pyc files
+        run: find . -type d -name __pycache__ -exec rm -r {} +
 
       - name: Install dependencies
         run: |

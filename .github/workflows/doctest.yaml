@@ -6,11 +6,13 @@ on:
     branches:
       - main
       - develop
+      - "*"
       - trunk-merge/**
   pull_request:
     branches:
       - main
       - develop
+      - "*"
 
 jobs:
   doctest:

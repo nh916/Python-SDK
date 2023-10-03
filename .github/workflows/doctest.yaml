@@ -14,8 +14,6 @@ on:
       - develop
       - "*"
 
-
-
 jobs:
   doctest:
     strategy:
@@ -43,10 +41,12 @@ jobs:
         run: | 
           python${{ matrix.python-version }} -m pip install .
           pwd
-          ls
 
       - name: Clear __pycache__ and *.pyc files
         run: find . -type d -name __pycache__ -exec rm -r {} +
 
+      - name: Set PYTHONPATH
+        run: export PYTHONPATH=$PYTHONPATH:`pwd`
+
       - name: Run Doctests
-        run: python${{ matrix.python-version }} -m pytest --doctest-modules src/cript/
+        run: python${{ matrix.python-version }} -m pytest -o python_paths=. --doctest-modules src/cript/

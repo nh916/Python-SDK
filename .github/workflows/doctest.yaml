@@ -38,15 +38,7 @@ jobs:
           pip install -r requirements_dev.txt
 
       - name: pip install CRIPT Python SDK local package
-        run: | 
-          python${{ matrix.python-version }} -m pip install .
-          pwd
-
-      - name: Clear __pycache__ and *.pyc files
-        run: find . -type d -name __pycache__ -exec rm -r {} +
-
-      - name: Set PYTHONPATH
-        run: export PYTHONPATH=$PYTHONPATH:`pwd`
+        run: python${{ matrix.python-version }} -m pip install .
 
       - name: Run Doctests
         run: python${{ matrix.python-version }} -m pytest -o python_paths=. --doctest-modules src/cript/

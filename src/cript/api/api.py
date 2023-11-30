@@ -12,6 +12,7 @@ import jsonschema
 import requests
 from beartype import beartype
 
+import cript
 from cript.api.api_config import _API_TIMEOUT
 from cript.api.exceptions import (
     APIError,
@@ -33,7 +34,7 @@ from cript.api.utils.save_helper import (
     _InternalSaveValues,
 )
 from cript.api.utils.web_file_downloader import download_file_from_url
-from cript.api.valid_search_modes import SearchModes
+from cript.api.valid_search_modes import ExactSearchModes, SearchModes
 from cript.api.vocabulary_categories import VocabCategories
 from cript.nodes.exceptions import CRIPTNodeSchemaError
 from cript.nodes.primary_nodes.project import Project
@@ -1088,7 +1089,6 @@ class API:
             Type of node that you are searching for.
         search_mode : SearchModes
             Type of search you want to do. You can search by name, `UUID`, `EXACT_NAME`, etc.
-            Refer to [valid search modes](../search_modes)
         value_to_search : Optional[str]
             What you are searching for can be either a value, and if you are only searching for
             a `NODE_TYPE`, then this value can be empty or `None`
@@ -1157,6 +1157,77 @@ class API:
             raise RuntimeError("Internal Error: Failed to recognize any search modes. Please report this bug on https://github.com/C-Accel-CRIPT/Python-SDK/issues.")
 
         return Paginator(http_headers=self._http_headers, api_endpoint=api_endpoint, query=value_to_search, current_page_number=page_number)
+
+    @beartype
+    def get_node_by_exact_match(self, node_type: Any, search_mode: ExactSearchModes, value_to_search: str) -> Any:
+        """
+        Fetches a node from the API based on exact match criteria and returns the requested node as a Python object.
+
+        Parameters
+        ----------
+        node_type: Any
+            The class representation of the type of node you're targeting.
+        search_mode: ExactSearchModes
+            The type of exact match criteria (UUID, EXACT_NAME, BIGSMILES, etc.).
+        value_to_search: str
+            The value you're searching for.
+
+        Examples
+        --------
+        >>> # Get Node by UUID
+        >>> my_material_node = api.get_node_by_exact_match(
+        ...     node_type=cript.Material,
+        ...     search_mode=ExactSearchModes.UUID,
+        ...     value_to_search="e1b41d34-3bf2-4cd8-9a19-6412df7e7efc"
+        ... ) # doctest: +SKIP
+
+        >>> # Get Node by Exact Name
+        >>> my_project_node = api.get_node_by_exact_match(
+        ...     node_type=cript.Project,
+        ...     search_mode=ExactSearchModes.EXACT_NAME,
+        ...     value_to_search="Sodium polystyrene sulfonate"
+        ... ) # doctest: +SKIP
+
+        >>> # Get Node by BigSmiles
+        >>> my_material_node = api.get_node_by_exact_match(
+        ...     node_type=cript.Material,
+        ...     search_mode=ExactSearchModes.BIGSMILES,
+        ...     value_to_search="{[][$]CC(C)(C(=O)OCCCC)[$][]}"
+        ... ) # doctest: +SKIP
+
+
+        Returns
+        -------
+        Any
+            The requested node as a Python object.
+
+        Raises
+        ------
+        ValueError
+            If the node with the given exact match criteria is not found.
+        """
+
+        # Use the existing search method to get a paginator
+        if search_mode == ExactSearchModes.EXACT_NAME:
+            my_paginator = self.search(node_type=node_type, search_mode=SearchModes.EXACT_NAME, value_to_search=value_to_search)
+
+        elif search_mode == ExactSearchModes.UUID:
+            my_paginator = self.search(node_type=node_type, search_mode=SearchModes.UUID, value_to_search=value_to_search)
+
+        elif search_mode == ExactSearchModes.BIGSMILES:
+            my_paginator = self.search(node_type=node_type, search_mode=SearchModes.BIGSMILES, value_to_search=value_to_search)
+
+        # let the user know if no results are returned
+        if not my_paginator.current_page_results:
+            raise ValueError(f"No node found with {search_mode.value}: {value_to_search}")
+
+        # Get the node from the paginator
+        my_node_from_api_dict = my_paginator.current_page_results[0]
+
+        # Convert API JSON to a node object
+        my_node_from_api = cript.load_nodes_from_json(my_node_from_api_dict)
+
+        return my_node_from_api
 
     def delete(self, node) -> None:
         """

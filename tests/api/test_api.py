@@ -427,6 +427,74 @@ def test_api_search_bigsmiles(cript_api: cript.API) -> None:
     # assert bigsmiles_paginator.current_page_results[1]["name"] == "BCDB_Material_285"
 
 
+@pytest.mark.skipif(not HAS_INTEGRATION_TESTS_ENABLED, reason="requires a real cript_api_token")
+def test_api_get_node_by_exact_match_exact_name(cript_api: cript.API, dynamic_material_data) -> None:
+    """
+    Tests get_node_by_exact_match method with exact name search.
+    Searches for material "Sodium polystyrene sulfonate".
+    """
+    material_node = cript_api.get_node_by_exact_match(node_type=cript.Material, search_mode=cript.ExactSearchModes.EXACT_NAME, value_to_search=dynamic_material_data["name"])
+
+    assert isinstance(material_node, cript.Material)
+    assert material_node.name == dynamic_material_data["name"]
+    assert material_node.uuid == dynamic_material_data["uuid"]
+
+
+@pytest.mark.skipif(not HAS_INTEGRATION_TESTS_ENABLED, reason="requires a real cript_api_token")
+def test_api_get_node_by_exact_match_uuid(cript_api: cript.API, dynamic_material_data) -> None:
+    """
+    Tests get_node_by_exact_match with UUID.
+    Searches for `Sodium polystyrene sulfonate` material via UUID.
+    """
+    material_node = cript_api.get_node_by_exact_match(node_type=cript.Material, search_mode=cript.ExactSearchModes.UUID, value_to_search=dynamic_material_data["uuid"])
+
+    assert isinstance(material_node, cript.Material)
+    assert material_node.name == dynamic_material_data["name"]
+    assert material_node.uuid == dynamic_material_data["uuid"]
+
+
+@pytest.mark.skipif(not HAS_INTEGRATION_TESTS_ENABLED, reason="requires a real cript_api_token")
+def test_api_get_node_by_exact_match_bigsmiles(cript_api: cript.API, dynamic_material_data) -> None:
+    """
+    Tests get_node_by_exact_match with BIGSMILES search mode.
+    Searches for material "{[][<]C(C)C(=O)O[>][<]}{[$][$]CCC(C)C[$],[$]CC(C(C)C)[$],[$]CC(C)(CC)[$][]}".
+    """
+    bigsmiles_search_value = "{[][<]C(C)C(=O)O[>][<]}{[$][$]CCC(C)C[$],[$]CC(C(C)C)[$],[$]CC(C)(CC)[$][]}"
+
+    material_node = cript_api.get_node_by_exact_match(node_type=cript.Material, search_mode=cript.ExactSearchModes.BIGSMILES, value_to_search=bigsmiles_search_value)
+
+    assert isinstance(material_node, cript.Material)
+    assert material_node.name == dynamic_material_data["name"]
+    assert material_node.uuid == dynamic_material_data["uuid"]
+
+
+@pytest.mark.skipif(not HAS_INTEGRATION_TESTS_ENABLED, reason="requires a real cript_api_token")
+def test_api_get_node_by_exact_match_invalid_search_value(cript_api: cript.API) -> None:
+    """
+    Verifies that `ValueError` is raised when no matches are found in the CRIPT DB.
+
+    This test aims to validate two aspects:
+    1. When using cript.API.search with a non-existent material name, the function should return a Paginator
+     object with zero results.
+    1. Then, when using cript.API.get_node_by_exact_match with the same non-existent name,
+    the function should raise a `ValueError` letting the user know that this material does not exist.
+
+    It does so by attempting to search for a material with a name that's guaranteed to be unique
+    and cannot exist in the CRIPT DB. The name includes the current date-time to ensure uniqueness.
+    """
+    nonexistent_material_name = f"a unique material name that cannot exist in CRIPT DB with unique time: {str(datetime.datetime.now())}"
+
+    exact_name_paginator = cript_api.search(node_type=cript.Material, search_mode=cript.SearchModes.EXACT_NAME, value_to_search=nonexistent_material_name)
+
+    # check that API returned 0 results for the `nonexistent_material_name`
+    assert isinstance(exact_name_paginator, Paginator)
+    assert len(exact_name_paginator.current_page_results) == 0
+
+    # check that `get_node_by_exact_match` raises a `ValueError` since the API returned 0 results
+    with pytest.raises(ValueError):
+        cript_api.get_node_by_exact_match(node_type=cript.Material, search_mode=cript.ExactSearchModes.EXACT_NAME, value_to_search=nonexistent_material_name)
+
+
 def test_get_my_user_node_from_api(cript_api: cript.API) -> None:
     """
     tests that the Python SDK can successfully get the user node associated with the API Token

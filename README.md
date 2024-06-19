@@ -48,9 +48,9 @@ pip install cript
 
 ## Documentation
 
-To learn more about the CRIPT Python SDK please check the [CRIPT Python SDK user documentation](https://c-accel-cript.github.io/Python-SDK/)
+To learn more about the CRIPT Python SDK please check the [CRIPT Python SDK user documentation](https://nh916.github.io/Python-SDK/)
 
-To learn more about the internal workings of the CRIPT Python SDK please check the [CRIPT Python SDK internal documentation](https://github.com/C-Accel-CRIPT/Python-SDK/wiki)
+To learn more about the internal workings of the CRIPT Python SDK please check the [CRIPT Python SDK internal documentation](https://github.com/nh916/Python-SDK/wiki)
 
 ---
 

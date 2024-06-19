@@ -1,7 +1,7 @@
 site_name: CRIPT Python SDK
 
-repo_url: https://github.com/C-Accel-CRIPT/Python-SDK
-repo_name: C-Accel-CRIPT/Python-SDK
+repo_url: https://github.com/nh916/Python-SDK
+repo_name: Python-SDK
 
 nav:
   - Home: index.md

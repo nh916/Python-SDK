@@ -253,12 +253,8 @@ ana = cript.Computation(
 experiment.computation += [init, equilibration, bulk, ana]
 ```
 
-
 !!! note "Computation types"
     The allowed [`Computation`](../../nodes/primary_nodes/computation) types are listed under [computation types](https://app.criptapp.org/vocab/computation_type) in the CRIPT controlled vocabulary.
-
-!!! note "Condition keys"
-    The allowed [`Condition`](../../nodes/subobjects/condition) keys are listed under [condition keys](https://app.criptapp.org/vocab/condition_key) in the CRIPT controlled vocabulary.
 
 
 ## Create and Upload [Files nodes](../../nodes/supporting_nodes/file)

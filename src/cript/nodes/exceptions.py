@@ -59,12 +59,20 @@ class CRIPTJsonDeserializationError(CRIPTException):
     ## Definition
     This exception is raised when converting a node from JSON to Python class fails.
     This process fails when the attributes within the JSON does not match the node's class
-    attributes within the `JsonAttributes` of that specific node
+    attributes within the `JsonAttributes` of that specific node.
 
     ### Error Example
     Invalid JSON that cannot be deserialized to a CRIPT Python SDK Node
 
     ```json
+    {
+        "node":["Material"],
+        "name":"my unique material name",
+        "uid":"_:9679ff12-f9b4-41f4-be95-080b78fa71fd",
+        "uuid":"9679ff12-f9b4-41f4-be95-080b78fa71fd",
+        "bigsmiles":"[H]{[>][<]C(C[>])c1ccccc1[]}",
+        "identifier": "not a list so this will fail deserialization"
+    }
     ```
 
 
@@ -72,6 +80,16 @@ class CRIPTJsonDeserializationError(CRIPTException):
     Valid JSON that can be deserialized to a CRIPT Python SDK Node
 
     ```json
+    {
+        "node":["Material"],
+        "name":"my unique material name",
+        "uid":"_:9679ff12-f9b4-41f4-be95-080b78fa71fd",
+        "uuid":"9679ff12-f9b4-41f4-be95-080b78fa71fd",
+        "bigsmiles":"[H]{[>][<]C(C[>])c1ccccc1[]}",
+        "identifier": [
+            {"cas": "7732-18-5"}
+        ]
+    }
     ```
 
     ## Troubleshooting

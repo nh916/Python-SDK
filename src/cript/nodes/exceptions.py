@@ -219,8 +219,8 @@ class CRIPTJsonNodeError(CRIPTJsonDeserializationError):
           "uid": "_:Whey protein isolate"
         },
         ```
-        > The `node` field should contain exactly one node type. 
         > This example is invalid because it contains multiple node types for a single node.
+        > The `node` field should contain exactly one node type.
 
         ---
 
@@ -231,8 +231,8 @@ class CRIPTJsonNodeError(CRIPTJsonDeserializationError):
           "uid": "_:Whey protein isolate"
         },
         ```
-        > The `node` field should contain exactly one node type. 
         > This example is invalid because it does not contain any node type.
+        > The `node` field should contain exactly one node type. 
 
 
     ## Troubleshooting

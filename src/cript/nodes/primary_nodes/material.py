@@ -36,20 +36,19 @@ class Material(PrimaryBaseNode):
 
     Example
     -------
-     water, brine (water + NaCl), polystyrene, polyethylene glycol hydrogels, vulcanized polyisoprene, mcherry (protein), and mica
-
+    water, brine (water + NaCl), polystyrene, polyethylene glycol hydrogels, vulcanized polyisoprene, mcherry (protein), and mica
 
     Warnings
     -------
-    !!! warning "Material names"
-        Material names Must be unique within a [Project](../project)
+    Material names Must be unique within a [Project](../project)
 
+    ## JSON Representation
     ```json
       {
          "node":["Material"],
          "name":"my unique material name",
          "uid":"_:9679ff12-f9b4-41f4-be95-080b78fa71fd",
-         "uuid":"9679ff12-f9b4-41f4-be95-080b78fa71fd"
+         "uuid":"9679ff12-f9b4-41f4-be95-080b78fa71fd",
          "bigsmiles":"[H]{[>][<]C(C[>])c1ccccc1[]}",
       }
     ```

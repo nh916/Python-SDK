@@ -42,8 +42,7 @@ class Experiment(PrimaryBaseNode):
 
     Warnings
     --------
-    !!! warning "Experiment names"
-        Experiment names **MUST** be unique within a [Collection](../collection)
+    Experiment names **MUST** be unique within a [Collection](../collection)
 
     ---
 

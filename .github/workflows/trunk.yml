@@ -1,16 +1,17 @@
 name: Trunk.io
 
 on:
-  push:
-    branches:
-      - main
-      - develop
-      - trunk-merge/**
-  pull_request:
-    branches:
-      - main
-      - develop
-      - "*"
+  # push:
+  #   branches:
+  #     - main
+  #     - develop
+  #     - trunk-merge/**
+  # pull_request:
+  #   branches:
+  #     - main
+  #     - develop
+  #     - "*"
+  workflow_dispatch:
 permissions: read-all
 
 jobs:

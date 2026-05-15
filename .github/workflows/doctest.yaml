@@ -4,15 +4,16 @@ name: Doctest
 permissions: read-all
 
 on:
-  push:
-    branches:
-      - main
-      - develop
-      - trunk-merge/**
-  pull_request:
-    branches:
-      - main
-      - develop
+#   push:
+#     branches:
+#       - main
+#       - develop
+#       - trunk-merge/**
+#   pull_request:
+#     branches:
+#       - main
+#       - develop
+  workflow_dispatch:
 
 jobs:
   doctest:

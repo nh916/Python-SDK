@@ -7,9 +7,7 @@ from abc import ABC
 from dataclasses import asdict, dataclass, replace
 from typing import Dict, List, Optional, Set
 
-from cript.nodes.exceptions import (CRIPTAttributeModificationError,
-                                    CRIPTExtraJsonAttributes,
-                                    CRIPTJsonSerializationError)
+from cript.nodes.exceptions import CRIPTAttributeModificationError, CRIPTExtraJsonAttributes, CRIPTJsonSerializationError
 
 tolerated_extra_json = []
 

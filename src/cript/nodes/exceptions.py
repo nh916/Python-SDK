@@ -383,8 +383,7 @@ def get_orphaned_experiment_exception(orphaned_node):
     Return the correct specific Exception based in the orphaned node type for nodes not correctly listed in experiment.
     """
     from cript.nodes.primary_nodes.computation import Computation
-    from cript.nodes.primary_nodes.computation_process import \
-        ComputationProcess
+    from cript.nodes.primary_nodes.computation_process import ComputationProcess
     from cript.nodes.primary_nodes.data import Data
     from cript.nodes.primary_nodes.process import Process
 

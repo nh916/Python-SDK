@@ -1180,10 +1180,9 @@ class API:
         INFO: Deleted 'Material' with UUID of '80bfc642-157e-4692-a547-97c470725397' from CRIPT API.
         ```
 
-        ??? info "Implementation Details"
-            Under the hood, this method actually calls
-            [delete_node_by_uuid](./#cript.api.api.API.delete_node_by_uuid)
-            with the node_type and node UUID
+        > Under the hood, this method actually calls
+        > [`delete_node_by_uuid()`](./#cript.api.api.API.delete_node_by_uuid)
+        > with the node_type and node UUID
 
         Warnings
         --------

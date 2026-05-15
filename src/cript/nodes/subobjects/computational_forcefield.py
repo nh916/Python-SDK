@@ -75,10 +75,10 @@ class ComputationalForcefield(UUIDBaseNode):
     ---
     ## Valid Parent Nodes:
     * [Material](../../primary_nodes/material)
-    
+
     ## Valid Sub-objects
     * [Citation](../citation)
-    
+
     ---
     """
 

@@ -35,7 +35,7 @@ class Reference(UUIDBaseNode):
     | arxiv_id  | str       | 1501                                       | arXiv identifier                              |               |       |
     | pmid      | int       | ########                                   | PMID: PubMed ID                               |               |       |
     | website   | str       | https://www.nature.com/artic les/1781168a0 | website where the publication can be accessed |               |       |
-    
+
     ## JSON Representation
     ```json
     {

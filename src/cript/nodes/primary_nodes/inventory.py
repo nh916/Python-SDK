@@ -56,7 +56,7 @@ class Inventory(PrimaryBaseNode):
 
     ## Valid Sub-object
     * `None`
-    
+
     ---
     """
 

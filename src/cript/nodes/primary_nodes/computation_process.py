@@ -99,7 +99,7 @@ class ComputationProcess(PrimaryBaseNode):
     ## Valid Parent Nodes
     * [Experiment](../experiment)
     * [Data](../data)
-    
+
     ## Valid Sub-objects
     * [ingredient](../../subobjects/ingredient)
     * [software_configuration](../../subobjects/software_configuration)

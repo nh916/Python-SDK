@@ -11,7 +11,7 @@ class Citation(UUIDBaseNode):
     """
     ## Definition
     The [Citation sub-object](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=26)
-    essentially houses the [Reference nodes](../../primary_nodes/reference). 
+    essentially houses the [Reference nodes](../../primary_nodes/reference).
     The `citation` sub-object provides a link to papers, books, or other scholarly work
     and allows users to specify in what way the work relates to that data.
 

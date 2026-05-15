@@ -52,7 +52,7 @@ class Process(PrimaryBaseNode):
     * [Property](../../subobjects/property)
     * [Condition](../../subobjects/condition)
     * [Citation](../../subobjects/citation)
-    
+
     ---
     """
 

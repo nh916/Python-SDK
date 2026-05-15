@@ -6,16 +6,14 @@ from typing import Dict, List, Optional, Set, Union
 
 import cript.nodes
 from cript.nodes.core import BaseNode
-from cript.nodes.exceptions import (
-    CRIPTDeserializationUIDError,
-    CRIPTJsonDeserializationError,
-    CRIPTJsonNodeError,
-    CRIPTOrphanedComputationalProcessError,
-    CRIPTOrphanedComputationError,
-    CRIPTOrphanedDataError,
-    CRIPTOrphanedMaterialError,
-    CRIPTOrphanedProcessError,
-)
+from cript.nodes.exceptions import (CRIPTDeserializationUIDError,
+                                    CRIPTJsonDeserializationError,
+                                    CRIPTJsonNodeError,
+                                    CRIPTOrphanedComputationalProcessError,
+                                    CRIPTOrphanedComputationError,
+                                    CRIPTOrphanedDataError,
+                                    CRIPTOrphanedMaterialError,
+                                    CRIPTOrphanedProcessError)
 from cript.nodes.primary_nodes.experiment import Experiment
 from cript.nodes.primary_nodes.project import Project
 

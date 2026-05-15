@@ -11,12 +11,12 @@ class Experiment(PrimaryBaseNode):
     ## Definition
     An
     [Experiment node](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=9)
-    is nested inside a [Collection](../collection) node. 
-    
+    is nested inside a [Collection](../collection) node.
+
     An
     [Experiment node](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=9)
-    can be thought as a folder/bucket that can hold: [Process](../process), [Computations](../computation), 
-    [Computation_Process](../computation_process), [Data](../data), 
+    can be thought as a folder/bucket that can hold: [Process](../process), [Computations](../computation),
+    [Computation_Process](../computation_process), [Data](../data),
     [Funding](./#cript.nodes.primary_nodes.experiment.Experiment.funding), and [Citation](../../subobjects/citation) node.
 
 
@@ -48,7 +48,7 @@ class Experiment(PrimaryBaseNode):
 
     ## Valid Sub-objects
     * `None`
-    
+
     ---
 
     Warnings

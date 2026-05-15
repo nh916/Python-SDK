@@ -32,9 +32,9 @@ class SearchModes(Enum):
     please check the [cript.API.search( ) method](../api/#cript.api.api.API.search)
     """
 
-    NODE_TYPE: str = ""
-    EXACT_NAME: str = "exact_name"
-    CONTAINS_NAME: str = "contains_name"
-    UUID: str = "uuid"
+    NODE_TYPE = ""
+    EXACT_NAME = "exact_name"
+    CONTAINS_NAME = "contains_name"
+    UUID = "uuid"
     # UUID_CHILDREN = "uuid_children"
-    BIGSMILES: str = "bigsmiles"
+    BIGSMILES = "bigsmiles"

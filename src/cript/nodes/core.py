@@ -9,7 +9,7 @@ from typing import Dict, List, Optional, Set
 
 from cript.nodes.exceptions import CRIPTAttributeModificationError, CRIPTExtraJsonAttributes, CRIPTJsonSerializationError
 
-tolerated_extra_json = []
+tolerated_extra_json: List[str] = []
 
 
 def add_tolerated_extra_json(additional_tolerated_json: str):

@@ -11,37 +11,22 @@ from cript.nodes.uuid_base import UUIDBaseNode
 class Condition(UUIDBaseNode):
     """
     ## Definition
-
-    A [Condition](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=21) sub-object
+    A [Condition sub-object](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=21)
     is the conditions under which the experiment was conducted.
-    Some examples include temperature, mixing_rate, stirring, time_duration.
-
-    ----
-
-    ## Can Be Added To:
-    ### Primary Nodes
-    * [Process](../../primary_nodes/process)
-    * [Computation_Process](../../primary_nodes/computation_process)
-
-    ### Subobjects
-    * [Property](../property)
-    * [Equipment](../equipment)
-
-    ---
+    Some examples include `"temperature"`, `"mixing_rate"`, `"stirring"`, `"time_duration"`.
 
     ## Attributes
-
-    | attribute        | type   | example                 | description                                                                            | required | vocab |
-    |------------------|--------|-------------------------|----------------------------------------------------------------------------------------|----------|-------|
-    | key              | str    | temp                    | type of condition                                                                      | True     | True  |
-    | type             | str    | min                     | type of value stored, 'value' is just the number, 'min', 'max', 'avg', etc. for series | True     | True  |
-    | descriptor       | str    | upper temperature probe | freeform description for condition                                                     |          |       |
-    | value            | Number | 1.23                    | value or quantity                                                                      | True     |       |
-    | unit             | str    | gram                    | unit for value                                                                         |          |       |
-    | uncertainty      | Number | 0.1                     | uncertainty of value                                                                   |          |       |
-    | uncertainty_type | str    | std                     | type of uncertainty                                                                    |          | True  |
-    | set_id           | int    | 0                       | ID of set (used to link measurements in as series)                                     |          |       |
-    | measurement _id  | int    | 0                       | ID for a single measurement (used to link multiple condition at a single instance)     |          |       |
+    | attribute        | type       | example                 | description                                                                            | required | vocab |
+    |------------------|------------|-------------------------|----------------------------------------------------------------------------------------|----------|-------|
+    | key              | str        | temp                    | type of condition                                                                      | True     | True  |
+    | type             | str        | min                     | type of value stored, 'value' is just the number, 'min', 'max', 'avg', etc. for series | True     | True  |
+    | descriptor       | str        | upper temperature probe | freeform description for condition                                                     |          |       |
+    | value            | Number     | 1.23                    | value or quantity                                                                      | True     |       |
+    | unit             | str        | gram                    | unit for value                                                                         |          |       |
+    | uncertainty      | Number     | 0.1                     | uncertainty of value                                                                   |          |       |
+    | uncertainty_type | str        | std                     | type of uncertainty                                                                    |          | True  |
+    | set_id           | int        | 0                       | ID of set (used to link measurements in as series)                                     |          |       |
+    | measurement _id  | int        | 0                       | ID for a single measurement (used to link multiple condition at a single instance)     |          |       |
     | data             | List[Data] |                         | detailed data associated with the condition                                            |          |       |
 
     ## JSON Representation
@@ -73,6 +58,18 @@ class Condition(UUIDBaseNode):
         }],
     }
     ```
+
+    ----
+
+    ## Valid Parent Nodes:
+    * [Process](../../primary_nodes/process)
+    * [Computation_Process](../../primary_nodes/computation_process)
+
+    ## Valid Sub-objects
+    * [Property](../property)
+    * [Equipment](../equipment)
+
+    ---
     """
 
     @dataclass(frozen=True)

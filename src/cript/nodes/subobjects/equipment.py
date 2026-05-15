@@ -15,19 +15,7 @@ class Equipment(UUIDBaseNode):
     An [Equipment](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=23)
     sub-object specifies the physical instruments, tools, glassware, etc. used in a process.
 
-    ---
-
-    ## Can Be Added To:
-    * [Process node](../../primary_nodes/process)
-
-    ## Available sub-objects:
-    * [Condition](../condition)
-    * [Citation](../citation)
-
-    ---
-
     ## Attributes
-
     | attribute   | type            | example                                       | description                                                                    | required | vocab |
     |-------------|-----------------|-----------------------------------------------|--------------------------------------------------------------------------------|----------|-------|
     | key         | str             | hot plate                                     | material                                                                       | True     | True  |
@@ -47,6 +35,16 @@ class Equipment(UUIDBaseNode):
     }
     ```
 
+    ---
+
+    ## Valid Parent Nodes
+    * [Process node](../../primary_nodes/process)
+
+    ## Valid Sub-objects
+    * [Condition](../condition)
+    * [Citation](../citation)
+
+    ---
     """
 
     @dataclass(frozen=True)

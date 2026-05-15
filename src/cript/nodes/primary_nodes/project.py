@@ -17,7 +17,7 @@ class Project(PrimaryBaseNode):
     A Project can be thought of as a folder that can contain [Collections](../collection) and
     [Materials](../material).
 
-
+    ## Attributes
     | attribute  | type             | description                                         |
     |------------|------------------|-----------------------------------------------------|
     | collection | List[Collection] | collections that relate to the project              |
@@ -51,6 +51,15 @@ class Project(PrimaryBaseNode):
        ]
     }
     ```
+
+    ---
+    ## Valid Parent Nodes
+    * `None`
+
+    ## Valid Sub-objects
+    * `None`
+
+    ---
     """
 
     @dataclass(frozen=True)

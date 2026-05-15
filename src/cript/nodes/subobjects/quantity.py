@@ -13,18 +13,7 @@ class Quantity(UUIDBaseNode):
     The [Quantity](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=22)
     sub-objects are the amount of material involved in a process
 
-    ---
-
-    ## Can Be Added To:
-    * [Ingredient](../ingredient)
-
-    ## Available sub-objects
-    * None
-
-    ----
-
     ## Attributes
-
     | attribute        | type    | example | description          | required | vocab |
     |------------------|---------|---------|----------------------|----------|-------|
     | key              | str     | mass    | type of quantity     | True     | True  |
@@ -32,9 +21,6 @@ class Quantity(UUIDBaseNode):
     | unit             | str     | gram    | unit for quantity    | True     |       |
     | uncertainty      | Number  | 0.1     | uncertainty of value |          |       |
     | uncertainty_type | str     | std     | type of uncertainty  |          | True  |
-
-
-
 
     ## JSON Representation
     ```json
@@ -49,6 +35,16 @@ class Quantity(UUIDBaseNode):
      "uuid":"c95ee781-923b-4699-ba3b-923ce186ac5d",
     }
     ```
+
+    ---
+
+    ## Valid Primary Node
+    * [Ingredient](../ingredient)
+
+    ## Valid Sub-object
+    * `None`
+
+    ----
     """
 
     @dataclass(frozen=True)

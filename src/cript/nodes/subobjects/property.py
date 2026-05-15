@@ -18,23 +18,9 @@ class Property(UUIDBaseNode):
     ## Definition
     [Property](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=18)
     sub-objects are qualities/traits of a [material](../../primary_nodes/material) or
-    [Process](../../primary_nodes/process)
-
-    ---
-
-    ## Can Be Added To:
-    * [Material](../../primary_nodes/material)
-    * [Process](../../primary_nodes/process)
-    * [Computation_Process](../../primary_nodes/computation_process)
-
-    ## Available sub-objects:
-    * [Condition](../condition)
-    * [Citation](../citation)
-
-    ---
+    [Process](../../primary_nodes/process) nodes.
 
     ## Attributes
-
     | attribute          | type              | example                                 | description                                                                  | required | vocab |
     |--------------------|-------------------|-----------------------------------------|------------------------------------------------------------------------------|----------|-------|
     | key                | str               | modulus_shear                           | type of property                                                             | True     | True  |
@@ -66,6 +52,19 @@ class Property(UUIDBaseNode):
        "uuid":"bc3abb68-25b5-4144-aa1b-85d82b7c77e1",
     }
     ```
+
+    ---
+
+    ## Valid Parent Nodes
+    * [Material](../../primary_nodes/material)
+    * [Process](../../primary_nodes/process)
+    * [Computation_Process](../../primary_nodes/computation_process)
+
+    ## Valid Sub-objects
+    * [Condition](../condition)
+    * [Citation](../citation)
+
+    ---
     """
 
     @dataclass(frozen=True)

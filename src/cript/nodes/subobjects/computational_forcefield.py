@@ -29,10 +29,6 @@ class ComputationalForcefield(UUIDBaseNode):
     | data                   | Data           |                                                                        | details of mapping schema and forcefield parameters                      |          |       |
     | citation               | list[Citation] |                                                                        | reference to a book, paper, or scholarly work                            |          |       |
 
-
-    ## Can be Added To Primary Node:
-    * Material node
-
     ## JSON Representation
     ```json
     {
@@ -74,10 +70,16 @@ class ComputationalForcefield(UUIDBaseNode):
                 "website": "https://www.sciencedirect.com/science/article/pii/S0010465518303072",
             }
     }
-
-
     ```
 
+    ---
+    ## Valid Parent Nodes:
+    * [Material](../../primary_nodes/material)
+    
+    ## Valid Sub-objects
+    * [Citation](../citation)
+    
+    ---
     """
 
     @dataclass(frozen=True)

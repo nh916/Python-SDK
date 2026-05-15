@@ -9,27 +9,17 @@ from cript.nodes.uuid_base import UUIDBaseNode
 class Algorithm(UUIDBaseNode):
     """
     ## Definition
-
     An [algorithm sub-object](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=25)
     is a set of instructions that define a computational process.
     An algorithm consists of parameters that are used in the computation and the computational process itself.
 
-
     ## Attributes
-
     | Keys      | Type            | Example                                      | Description                                            | Required | Vocab |
     |-----------|-----------------|----------------------------------------------|--------------------------------------------------------|----------|-------|
     | key       | str             | ensemble, thermo-barostat                    | system configuration, algorithms used in a computation | True     | True  |
     | type      | str             | NPT for ensemble, Nose-Hoover for thermostat | specific type of configuration, algorithm              | True     |       |
     | parameter | list[Parameter] |                                              | setup associated parameters                            |          |       |
     | citation  | Citation        |                                              | reference to a book, paper, or scholarly work          |          |       |
-
-    ## Can be Added To
-    * [SoftwareConfiguration](../software_configuration)
-
-    ## Available sub-objects
-    * [Parameter](../parameter)
-    * [Citation](../citation)
 
     ## JSON Representation
     ```json
@@ -62,6 +52,16 @@ class Algorithm(UUIDBaseNode):
         },
     }
     ```
+
+    ---
+    ## Valid Parent Nodes
+    * [SoftwareConfiguration](../software_configuration)
+
+    ## Valid Sub-objects
+    * [Parameter](../parameter)
+    * [Citation](../citation)
+
+    ---
     """
 
     @dataclass(frozen=True)

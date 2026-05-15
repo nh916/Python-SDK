@@ -13,9 +13,6 @@ class Data(PrimaryBaseNode):
      node contains the meta-data to describe raw data that is beyond a single value, (i.e. n-dimensional data).
      Each `Data` node must be linked to a single `Experiment` node.
 
-    ## Available Sub-Objects
-    * [Citation](../../subobjects/citation)
-
     ## Attributes
     | Attribute           | Type                                              | Example                    | Description                                                                                  | Required |
     |---------------------|---------------------------------------------------|----------------------------|----------------------------------------------------------------------------------------------|----------|
@@ -29,18 +26,6 @@ class Data(PrimaryBaseNode):
     | process             | List[[Process](./process.md)]                     |                            | processes with attributes associated with the data node                                      | False    |
     | citation            | [Citation](../subobjects/citation.md)             |                            | reference to a book, paper, or scholarly work                                                | False    |
     | notes               | str                                               | "my awesome notes"         | miscellaneous information, or custom data structure                                          | False    |
-
-    Examples
-    --------
-    >>> import cript
-    >>> my_file = cript.File(
-    ...    name="my file node name",
-    ...    source="https://criptapp.org",
-    ...    type="calibration",
-    ...    extension=".csv",
-    ...    data_dictionary="my file's data dictionary"
-    ... )
-    >>> my_data = cript.Data(name="my data name", type="afm_amp", file=[my_file])
 
     ## JSON Representation
     ```json
@@ -64,6 +49,16 @@ class Data(PrimaryBaseNode):
        ]
     }
     ```
+
+    ---
+
+    ## Valid Parent Nodes
+    * [Data](../data)
+
+    ## Valid Sub-Objects
+    * [Citation](../../subobjects/citation)
+
+    ---
     """
 
     @dataclass(frozen=True)

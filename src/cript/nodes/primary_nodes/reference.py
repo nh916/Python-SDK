@@ -35,17 +35,7 @@ class Reference(UUIDBaseNode):
     | arxiv_id  | str       | 1501                                       | arXiv identifier                              |               |       |
     | pmid      | int       | ########                                   | PMID: PubMed ID                               |               |       |
     | website   | str       | https://www.nature.com/artic les/1781168a0 | website where the publication can be accessed |               |       |
-
-
-    ## Can be added to
-    * [Citation](../../subobjects/citation)
-
-    ## Available Subobjects
-    * None
-
-    !!! warning "Reference will always be public"
-        Reference node is meant to always be public and static to allow globally link data to the reference
-
+    
     ## JSON Representation
     ```json
     {
@@ -64,6 +54,18 @@ class Reference(UUIDBaseNode):
        "year":2019
     }
     ```
+
+    ---
+    ## Valid Parent Nodes
+    * [Citation](../../subobjects/citation)
+
+    ## Accepted Subobjects
+    * None
+
+    ---
+
+    !!! warning "Reference will always be public"
+        Reference node is meant to always be public and static to allow globally link data to the reference
     """
 
     @dataclass(frozen=True)

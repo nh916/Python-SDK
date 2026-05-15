@@ -22,8 +22,6 @@ class Computation(PrimaryBaseNode):
     to determine rate constants, a plateau modulus from a time-temperature-superposition, or calculating radius of
     gyration with the Debye function from small angle scattering data.
 
-
-
     ## Attributes
     | attribute                | type                          | example                               | description                                   | required | vocab |
     |--------------------------|-------------------------------|---------------------------------------|-----------------------------------------------|----------|-------|
@@ -35,7 +33,7 @@ class Computation(PrimaryBaseNode):
     | prerequisite_computation | Computation                   |                                       | prior computation method in chain             |          |       |
     | citation                 | list[Citation]                |                                       | reference to a book, paper, or scholarly work |          |       |
     | notes                    | str                           |                                       | additional description of the step            |          |       |
-
+    
     ## JSON Representation
     ```json
     {
@@ -48,12 +46,17 @@ class Computation(PrimaryBaseNode):
     }
     ```
 
+    ---
+    ## Valid Parent Nodes
+    * [Data](../data)
+    * [Experiment](../data)
 
-    ## Available Subobjects
+    ## Valid Sub-objects
     * [Software Configuration](../../subobjects/software_configuration)
     * [Condition](../../subobjects/condition)
     * [Citation](../../subobjects/citation)
 
+    ---
     """
 
     @dataclass(frozen=True)

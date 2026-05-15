@@ -11,29 +11,15 @@ class Citation(UUIDBaseNode):
     """
     ## Definition
     The [Citation sub-object](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=26)
-    essentially houses [Reference nodes](../../primary_nodes/reference). The citation subobject can then be added to CRIPT Primary nodes.
+    essentially houses the [Reference nodes](../../primary_nodes/reference). 
+    The `citation` sub-object provides a link to papers, books, or other scholarly work
+    and allows users to specify in what way the work relates to that data.
 
     ## Attributes
     | attribute | type      | example      | description                                   | required | vocab |
     |-----------|-----------|--------------|-----------------------------------------------|----------|-------|
     | type      | str       | derived_from | key for identifier                            | True     | True  |
     | reference | Reference |              | reference to a book, paper, or scholarly work | True     |       |
-
-    ## Can Be Added To
-    * [Collection node](../../primary_nodes/collection)
-    * [Computation node](../../primary_nodes/computation)
-    * [Computation Process Node](../../primary_nodes/computation_process)
-    * [Data node](../../primary_nodes/data)
-
-    * [Computational Forcefield subobjects](../computational_forcefield)
-    * [Property subobject](../property)
-    * [Algorithm subobject](../algorithm)
-    * [Equipment subobject](../equipment)
-
-    ---
-
-    ## Available Subobjects
-    * `None`
 
     ## JSON Representation
     ```json
@@ -55,6 +41,25 @@ class Citation(UUIDBaseNode):
             },
     }
     ```
+
+    ---
+
+    ## Valid Parent Nodes
+    * [Collection node](../../primary_nodes/collection)
+    * [Computation node](../../primary_nodes/computation)
+    * [Computation Process Node](../../primary_nodes/computation_process)
+    * [Data node](../../primary_nodes/data)
+
+    * [Computational Forcefield subobjects](../computational_forcefield)
+    * [Property subobject](../property)
+    * [Algorithm subobject](../algorithm)
+    * [Equipment subobject](../equipment)
+
+
+    ## Valid Sub-objects
+    * `None`
+
+    ---
     """
 
     @dataclass(frozen=True)

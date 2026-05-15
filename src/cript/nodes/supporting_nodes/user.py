@@ -25,7 +25,7 @@ class User(UUIDBaseNode):
     | created_at | datetime*   | 2023-03-06 18:45:23.450248 | date it was created (UTC time)             | True     |       |
 
 
-    ## JSON
+    ## JSON Representation
     ```json
     {
         "node": "User",
@@ -41,7 +41,6 @@ class User(UUIDBaseNode):
     * A User node is a **read-only** node that can only be deserialized from API JSON response to Python node.
     * The User node cannot be instantiated and within the Python SDK.
     * Attempting to edit the user node will result in an `Attribute Error`
-
     """
 
     @dataclass(frozen=True)

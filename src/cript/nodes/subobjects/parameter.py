@@ -14,7 +14,7 @@ class Parameter(UUIDBaseNode):
     A [parameter](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=25)
     is an input value to an algorithm.
 
-    ??? note "Difference between `Parameter` and `Condition`"
+    ???+ note "Difference between `Parameter` and `Condition`"
         For typical computations, the difference between
         parameter and condition lies in whether it changes the thermodynamic state of the simulated
         system: Variables that are part of defining a thermodynamic state should be defined as a condition
@@ -23,17 +23,7 @@ class Parameter(UUIDBaseNode):
         Therefore, `number` and `volume` need to be listed as conditions while
         `boundaries` and `origin` are parameters of ensemble size
 
-    ---
-    ## Can Be Added To:
-    * [Algorithm sub-object](../algorithm)
-
-    ## Available sub-objects:
-    * None
-
-    ---
-
     ## Attributes
-
     | attribute | type | example | description        | required | vocab |
     |-----------|------|---------|--------------------|----------|-------|
     | key       | str  |         | key for identifier | True     | True  |
@@ -52,6 +42,15 @@ class Parameter(UUIDBaseNode):
        "uuid":"6af3b3aa-1dbc-4ce7-be8b-1896b375001c",
     }
     ```
+
+    ---
+    ## Valid Parent Nodes
+    * [Algorithm](../algorithm)
+
+    ## Valid sub-objects
+    * `None`
+
+    ---
     """
 
     @dataclass(frozen=True)

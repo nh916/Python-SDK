@@ -39,12 +39,14 @@ class NodeEncoder(json.JSONEncoder):
     suppress_attributes : Optional[Dict[str, Set[str]]]
         A dictionary that allows suppressing specific attributes for nodes with the corresponding UUIDs.
 
-    Methods
+    Notes
     -------
     ```python
     default(self, obj: Any) -> Any:
         # Convert CRIPT nodes and other objects to their JSON representation.
     ```
+
+    ---
 
     ```python
     _apply_modifications(self, serialize_dict: dict) -> Tuple[dict, List[str]]:

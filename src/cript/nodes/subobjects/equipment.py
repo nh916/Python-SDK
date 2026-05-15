@@ -15,19 +15,7 @@ class Equipment(UUIDBaseNode):
     An [Equipment](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=23)
     sub-object specifies the physical instruments, tools, glassware, etc. used in a process.
 
-    ---
-
-    ## Can Be Added To:
-    * [Process node](../../primary_nodes/process)
-
-    ## Available sub-objects:
-    * [Condition](../condition)
-    * [Citation](../citation)
-
-    ---
-
     ## Attributes
-
     | attribute   | type            | example                                       | description                                                                    | required | vocab |
     |-------------|-----------------|-----------------------------------------------|--------------------------------------------------------------------------------|----------|-------|
     | key         | str             | hot plate                                     | material                                                                       | True     | True  |
@@ -47,6 +35,16 @@ class Equipment(UUIDBaseNode):
     }
     ```
 
+    ---
+
+    ## Valid Parent Nodes
+    * [Process node](../../primary_nodes/process)
+
+    ## Valid Sub-objects
+    * [Condition](../condition)
+    * [Citation](../citation)
+
+    ---
     """
 
     @dataclass(frozen=True)
@@ -244,7 +242,7 @@ class Equipment(UUIDBaseNode):
     @beartype
     def file(self, new_file: List[File]) -> None:
         """
-        set the file node for the equipment subobject
+        set the file node for the equipment sub-object
 
         Parameters
         ----------
@@ -290,7 +288,7 @@ class Equipment(UUIDBaseNode):
         Returns
         -------
         List[Citation]
-            list of Citation subobjects
+            list of Citation sub-objects
         """
         return self._json_attrs.citation.copy()
 
@@ -298,12 +296,12 @@ class Equipment(UUIDBaseNode):
     @beartype
     def citation(self, new_citation: List[Citation]) -> None:
         """
-        set the citation subobject for this equipment subobject
+        set the citation sub-object for this equipment sub-object
 
         Parameters
         ----------
         new_citation : List[Citation]
-            list of Citation subobjects
+            list of Citation sub-objects
 
         Returns
         -------

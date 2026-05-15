@@ -17,7 +17,7 @@ class Project(PrimaryBaseNode):
     A Project can be thought of as a folder that can contain [Collections](../collection) and
     [Materials](../material).
 
-
+    ## Attributes
     | attribute  | type             | description                                         |
     |------------|------------------|-----------------------------------------------------|
     | collection | List[Collection] | collections that relate to the project              |
@@ -51,6 +51,15 @@ class Project(PrimaryBaseNode):
        ]
     }
     ```
+
+    ---
+    ## Valid Parent Nodes
+    * `None`
+
+    ## Valid Sub-objects
+    * `None`
+
+    ---
     """
 
     @dataclass(frozen=True)
@@ -105,10 +114,7 @@ class Project(PrimaryBaseNode):
         self.validate()
 
     def validate(self, api=None, is_patch=False, force_validation: bool = False):
-        from cript.nodes.exceptions import (
-            CRIPTOrphanedMaterialError,
-            get_orphaned_experiment_exception,
-        )
+        from cript.nodes.exceptions import CRIPTOrphanedMaterialError, get_orphaned_experiment_exception
 
         # First validate like other nodes
         super().validate(api=api, is_patch=is_patch, force_validation=force_validation)

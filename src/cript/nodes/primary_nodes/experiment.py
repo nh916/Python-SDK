@@ -13,8 +13,14 @@ class Experiment(PrimaryBaseNode):
     [Experiment node](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=9)
     is nested inside a [Collection](../collection) node.
 
-    ## Attributes
+    An
+    [Experiment node](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=9)
+    can be thought as a folder/bucket that can hold: [Process](../process), [Computations](../computation),
+    [Computation_Process](../computation_process), [Data](../data),
+    [Funding](./#cript.nodes.primary_nodes.experiment.Experiment.funding), and [Citation](../../subobjects/citation) node.
 
+
+    ## Attributes
     | attribute           | type                         | description                                               | required |
     |---------------------|------------------------------|-----------------------------------------------------------|----------|
     | collection          | Collection                   | collection associated with the experiment                 | True     |
@@ -26,27 +32,6 @@ class Experiment(PrimaryBaseNode):
     | citation            | List[Citation]               | reference to a book, paper, or scholarly work             | False    |
     | notes               | str                          | miscellaneous information, or custom data structure       | False    |
 
-
-    ## Sub-objects
-    An
-    [Experiment node](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=9)
-    can be thought as a folder/bucket that can hold:
-
-    * [Process](../process)
-    * [Computations](../computation)
-    * [Computation_Process](../computation_process)
-    * [Data](../data)
-    * [Funding](./#cript.nodes.primary_nodes.experiment.Experiment.funding)
-    * [Citation](../../subobjects/citation)
-
-
-    Warnings
-    --------
-    !!! warning "Experiment names"
-        Experiment names **MUST** be unique within a [Collection](../collection)
-
-    ---
-
     ## JSON Representation
     ```json
     {
@@ -57,6 +42,18 @@ class Experiment(PrimaryBaseNode):
     }
     ```
 
+    ---
+    ## Valid Parent Nodes
+    * [Collection](../collection)
+
+    ## Valid Sub-objects
+    * `None`
+
+    ---
+
+    Warnings
+    --------
+    Experiment names **MUST** be unique within a [Collection](../collection)
     """
 
     @dataclass(frozen=True)

@@ -18,23 +18,9 @@ class Property(UUIDBaseNode):
     ## Definition
     [Property](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=18)
     sub-objects are qualities/traits of a [material](../../primary_nodes/material) or
-    [Process](../../primary_nodes/process)
-
-    ---
-
-    ## Can Be Added To:
-    * [Material](../../primary_nodes/material)
-    * [Process](../../primary_nodes/process)
-    * [Computation_Process](../../primary_nodes/computation_process)
-
-    ## Available sub-objects:
-    * [Condition](../condition)
-    * [Citation](../citation)
-
-    ---
+    [Process](../../primary_nodes/process) nodes.
 
     ## Attributes
-
     | attribute          | type              | example                                 | description                                                                  | required | vocab |
     |--------------------|-------------------|-----------------------------------------|------------------------------------------------------------------------------|----------|-------|
     | key                | str               | modulus_shear                           | type of property                                                             | True     | True  |
@@ -66,6 +52,19 @@ class Property(UUIDBaseNode):
        "uuid":"bc3abb68-25b5-4144-aa1b-85d82b7c77e1",
     }
     ```
+
+    ---
+
+    ## Valid Parent Nodes
+    * [Material](../../primary_nodes/material)
+    * [Process](../../primary_nodes/process)
+    * [Computation_Process](../../primary_nodes/computation_process)
+
+    ## Valid Sub-objects
+    * [Condition](../condition)
+    * [Citation](../citation)
+
+    ---
     """
 
     @dataclass(frozen=True)
@@ -249,7 +248,7 @@ class Property(UUIDBaseNode):
     @beartype
     def type(self, new_type: str) -> None:
         """
-        set the Property type for this subobject
+        set the Property type for this sub-object
 
         Parameters
         ----------
@@ -279,7 +278,7 @@ class Property(UUIDBaseNode):
     @beartype
     def set_value(self, new_value: Union[Number, str, None], new_unit: str) -> None:
         """
-        set the value attribute of the Property subobject
+        set the value attribute of the Property sub-object
 
         Examples
         ---------
@@ -358,7 +357,7 @@ class Property(UUIDBaseNode):
     @beartype
     def uncertainty_type(self) -> str:
         """
-        get the uncertainty_type for this Property subobject
+        get the uncertainty_type for this Property sub-object
 
         [Uncertainty type](https://app.criptapp.org/vocab/uncertainty_type)
         must come from CRIPT Controlled Vocabulary
@@ -394,12 +393,12 @@ class Property(UUIDBaseNode):
     @beartype
     def component(self, new_component: List[Material]) -> None:
         """
-        set the list of Materials as components for the Property subobject
+        set the list of Materials as components for the Property sub-object
 
         Parameters
         ----------
         new_component : List[Material]
-            new list of Materials to for the Property subobject
+            new list of Materials to for the Property sub-object
 
         Returns
         -------
@@ -500,7 +499,7 @@ class Property(UUIDBaseNode):
         Returns
         -------
         Union[Process, None]
-            Property linking back to the Process that has it as subobject
+            Property linking back to the Process that has it as sub-object
         """
         return self._json_attrs.sample_preparation
 
@@ -508,12 +507,12 @@ class Property(UUIDBaseNode):
     @beartype
     def sample_preparation(self, new_sample_preparation: Union[Process, None]) -> None:
         """
-        set the sample_preparation for the Property subobject
+        set the sample_preparation for the Property sub-object
 
         Parameters
         ----------
         new_sample_preparation : Union[Process, None]
-            back link to the Process that has this Property as its subobject
+            back link to the Process that has this Property as its sub-object
 
         Returns
         -------
@@ -546,12 +545,12 @@ class Property(UUIDBaseNode):
     @beartype
     def condition(self, new_condition: List[Condition]) -> None:
         """
-        set the list of Conditions for this property subobject
+        set the list of Conditions for this property sub-object
 
         Parameters
         ----------
         new_condition : List[Condition]
-            new list of Condition Subobjects
+            new list of Condition sub-objects
 
         Returns
         -------
@@ -564,7 +563,7 @@ class Property(UUIDBaseNode):
     @beartype
     def data(self) -> List[Data]:
         """
-        List of Data nodes for this Property subobjects
+        List of Data nodes for this Property sub-objects
 
         Examples
         --------
@@ -591,7 +590,7 @@ class Property(UUIDBaseNode):
     @beartype
     def data(self, new_data: List[Data]) -> None:
         """
-        set the Data node for the Property subobject
+        set the Data node for the Property sub-object
 
         Parameters
         ----------
@@ -647,7 +646,7 @@ class Property(UUIDBaseNode):
     @beartype
     def citation(self) -> List[Citation]:
         """
-        list of Citation subobjects for this Property subobject
+        list of Citation sub-objects for this Property sub-object
 
         Examples
         --------
@@ -675,7 +674,7 @@ class Property(UUIDBaseNode):
         Returns
         -------
         List[Citation]
-            list of Citation subobjects for this Property subobject
+            list of Citation sub-objects for this Property sub-object
         """
         return self._json_attrs.citation.copy()
 
@@ -683,12 +682,12 @@ class Property(UUIDBaseNode):
     @beartype
     def citation(self, new_citation: List[Citation]) -> None:
         """
-        set the list of Citation subobjects for the Property subobject
+        set the list of Citation sub-objects for the Property sub-object
 
         Parameters
         ----------
         new_citation : List[Citation]
-            new list of Citation subobjects
+            new list of Citation sub-objects
 
         Returns
         -------
@@ -701,7 +700,7 @@ class Property(UUIDBaseNode):
     @beartype
     def notes(self) -> str:
         """
-        notes for this Property subobject
+        notes for this Property sub-object
 
         Examples
         --------
@@ -712,7 +711,7 @@ class Property(UUIDBaseNode):
         Returns
         -------
         str
-            notes for this property subobject
+            notes for this property sub-object
         """
         return self._json_attrs.notes
 

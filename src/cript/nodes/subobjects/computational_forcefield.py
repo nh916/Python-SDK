@@ -11,7 +11,7 @@ from cript.nodes.uuid_base import UUIDBaseNode
 class ComputationalForcefield(UUIDBaseNode):
     """
     ## Definition
-    A [Computational Forcefield Subobject](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=23)
+    A [Computational Forcefield Sub-object](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=23)
     is a mathematical model that describes the forces between atoms and molecules.
     It is used in computational chemistry and molecular dynamics simulations to predict the behavior of materials.
     Forcefields are typically based on experimental data or quantum mechanical calculations,
@@ -28,10 +28,6 @@ class ComputationalForcefield(UUIDBaseNode):
     | description            | str            | OPLS forcefield with partial charges calculated via the LBCC algorithm | description of the forcefield and any modifications that have been added |          |       |
     | data                   | Data           |                                                                        | details of mapping schema and forcefield parameters                      |          |       |
     | citation               | list[Citation] |                                                                        | reference to a book, paper, or scholarly work                            |          |       |
-
-
-    ## Can be Added To Primary Node:
-    * Material node
 
     ## JSON Representation
     ```json
@@ -74,10 +70,16 @@ class ComputationalForcefield(UUIDBaseNode):
                 "website": "https://www.sciencedirect.com/science/article/pii/S0010465518303072",
             }
     }
-
-
     ```
 
+    ---
+    ## Valid Parent Nodes:
+    * [Material](../../primary_nodes/material)
+
+    ## Valid Sub-objects
+    * [Citation](../citation)
+
+    ---
     """
 
     @dataclass(frozen=True)
@@ -96,7 +98,7 @@ class ComputationalForcefield(UUIDBaseNode):
     @beartype
     def __init__(self, key: str, building_block: str, coarse_grained_mapping: str = "", implicit_solvent: str = "", source: str = "", description: str = "", data: Optional[List[Data]] = None, citation: Optional[List[Citation]] = None, **kwargs):
         """
-        instantiate a computational_forcefield subobject
+        instantiate a computational_forcefield sub-object
 
         Parameters
         ----------
@@ -131,7 +133,7 @@ class ComputationalForcefield(UUIDBaseNode):
         Returns
         -------
         None
-            Instantiate a computational_forcefield subobject
+            Instantiate a computational_forcefield sub-object
         """
         if citation is None:
             citation = []
@@ -420,7 +422,7 @@ class ComputationalForcefield(UUIDBaseNode):
         Returns
         -------
         List[Data]
-            list of data nodes for this computational_forcefield subobject
+            list of data nodes for this computational_forcefield sub-object
         """
         return self._json_attrs.data.copy()
 
@@ -485,12 +487,12 @@ class ComputationalForcefield(UUIDBaseNode):
     @beartype
     def citation(self, new_citation: List[Citation]) -> None:
         """
-        set the citation subobject of the computational_forcefield subobject
+        set the citation sub-object of the computational_forcefield sub-object
 
         Parameters
         ----------
         new_citation : List[Citation]
-            new citation subobject
+            new citation sub-object
         """
         new_attrs = replace(self._json_attrs, citation=new_citation)
         self._update_json_attrs_if_valid(new_attrs)

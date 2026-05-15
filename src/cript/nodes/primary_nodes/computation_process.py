@@ -11,16 +11,16 @@ class ComputationProcess(PrimaryBaseNode):
     ## Definition
 
     A
-    [Computational_Process](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=15)
+    [Computational_Process node](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=15)
     is a simulation that processes or changes a virtual material. Examples
     include simulations of chemical reactions, chain scission, cross-linking, strong shear, etc. A
     computational process may also encapsulate any computation that dramatically changes the
     materials properties, molecular topology, and physical aspects like molecular orientation, etc. The
-    computation_forcefield of a simulation is associated with a material. As a consequence, if the
+    `computation_forcefield` of a simulation is associated with a material. As a consequence, if the
     forcefield changes or gets refined via a computational procedure (density functional theory,
     iterative Boltzmann inversion for coarse-graining etc.) this forcefield changing step must be
-    described as a computational_process and a new material node with a different
-    computation_forcefield needs to be created.
+    described as a `computational_process` and a new material node with a different
+    `computation_forcefield` needs to be created.
 
     ## Attributes
     | attribute                | type                          | example                               | description                                   | required | vocab |
@@ -34,14 +34,6 @@ class ComputationProcess(PrimaryBaseNode):
     | property                 | list[Property]                |                                       | computation process properties                |          |       |
     | citation                 | list[Citation]                |                                       | reference to a book, paper, or scholarly work |          |       |
     | notes                    | str                           |                                       | additional description of the step            |          |       |
-
-
-    ## Available Subobjects
-    * [ingredient](../../subobjects/ingredient)
-    * [software_configuration](../../subobjects/software_configuration)
-    * [property](../../subobjects/property)
-    * [condition](../../subobjects/condition)
-    * [citation](../../subobjects/citation)
 
     ## JSON Representation
     ```json
@@ -103,6 +95,19 @@ class ComputationProcess(PrimaryBaseNode):
     }
     ```
 
+    ---
+    ## Valid Parent Nodes
+    * [Experiment](../experiment)
+    * [Data](../data)
+
+    ## Valid Sub-objects
+    * [ingredient](../../subobjects/ingredient)
+    * [software_configuration](../../subobjects/software_configuration)
+    * [property](../../subobjects/property)
+    * [condition](../../subobjects/condition)
+    * [citation](../../subobjects/citation)
+
+    ---
     """
 
     @dataclass(frozen=True)

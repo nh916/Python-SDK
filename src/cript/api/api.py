@@ -13,25 +13,12 @@ import requests
 from beartype import beartype
 
 from cript.api.api_config import _API_TIMEOUT
-from cript.api.exceptions import (
-    APIError,
-    CRIPTAPIRequiredError,
-    CRIPTAPISaveError,
-    CRIPTConnectionError,
-    CRIPTDuplicateNameError,
-    InvalidHostError,
-    InvalidVocabulary,
-)
+from cript.api.exceptions import APIError, CRIPTAPIRequiredError, CRIPTAPISaveError, CRIPTConnectionError, CRIPTDuplicateNameError, InvalidHostError, InvalidVocabulary
 from cript.api.paginator import Paginator
 from cript.api.utils.aws_s3_utils import get_s3_client
 from cript.api.utils.get_host_token import resolve_host_and_token
 from cript.api.utils.helper_functions import _get_node_type_from_json
-from cript.api.utils.save_helper import (
-    _fix_node_save,
-    _get_uuid_from_error_message,
-    _identify_suppress_attributes,
-    _InternalSaveValues,
-)
+from cript.api.utils.save_helper import _fix_node_save, _get_uuid_from_error_message, _identify_suppress_attributes, _InternalSaveValues
 from cript.api.utils.web_file_downloader import download_file_from_url
 from cript.api.valid_search_modes import SearchModes
 from cript.api.vocabulary_categories import VocabCategories
@@ -1180,10 +1167,9 @@ class API:
         INFO: Deleted 'Material' with UUID of '80bfc642-157e-4692-a547-97c470725397' from CRIPT API.
         ```
 
-        ??? info "Implementation Details"
-            Under the hood, this method actually calls
-            [delete_node_by_uuid](./#cript.api.api.API.delete_node_by_uuid)
-            with the node_type and node UUID
+        > Under the hood, this method actually calls
+        > [`delete_node_by_uuid()`](./#cript.api.api.API.delete_node_by_uuid)
+        > with the node_type and node UUID
 
         Warnings
         --------

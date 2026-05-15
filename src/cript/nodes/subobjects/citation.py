@@ -11,29 +11,15 @@ class Citation(UUIDBaseNode):
     """
     ## Definition
     The [Citation sub-object](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=26)
-    essentially houses [Reference nodes](../../primary_nodes/reference). The citation subobject can then be added to CRIPT Primary nodes.
+    essentially houses the [Reference nodes](../../primary_nodes/reference).
+    The `citation` sub-object provides a link to papers, books, or other scholarly work
+    and allows users to specify in what way the work relates to that data.
 
     ## Attributes
     | attribute | type      | example      | description                                   | required | vocab |
     |-----------|-----------|--------------|-----------------------------------------------|----------|-------|
     | type      | str       | derived_from | key for identifier                            | True     | True  |
     | reference | Reference |              | reference to a book, paper, or scholarly work | True     |       |
-
-    ## Can Be Added To
-    * [Collection node](../../primary_nodes/collection)
-    * [Computation node](../../primary_nodes/computation)
-    * [Computation Process Node](../../primary_nodes/computation_process)
-    * [Data node](../../primary_nodes/data)
-
-    * [Computational Forcefield subobjects](../computational_forcefield)
-    * [Property subobject](../property)
-    * [Algorithm subobject](../algorithm)
-    * [Equipment subobject](../equipment)
-
-    ---
-
-    ## Available Subobjects
-    * `None`
 
     ## JSON Representation
     ```json
@@ -55,6 +41,25 @@ class Citation(UUIDBaseNode):
             },
     }
     ```
+
+    ---
+
+    ## Valid Parent Nodes
+    * [Collection node](../../primary_nodes/collection)
+    * [Computation node](../../primary_nodes/computation)
+    * [Computation Process Node](../../primary_nodes/computation_process)
+    * [Data node](../../primary_nodes/data)
+
+    * [Computational Forcefield sub-objects](../computational_forcefield)
+    * [Property sub-object](../property)
+    * [Algorithm sub-object](../algorithm)
+    * [Equipment sub-object](../equipment)
+
+
+    ## Valid Sub-objects
+    * `None`
+
+    ---
     """
 
     @dataclass(frozen=True)
@@ -67,7 +72,7 @@ class Citation(UUIDBaseNode):
     @beartype
     def __init__(self, type: str, reference: Reference, **kwargs):
         """
-        create a Citation subobject
+        create a Citation sub-object
 
         Parameters
         ----------
@@ -101,7 +106,7 @@ class Citation(UUIDBaseNode):
         Returns
         -------
         None
-            Instantiate citation subobject
+            Instantiate citation sub-object
         """
         super().__init__(**kwargs)
         self._json_attrs = replace(self._json_attrs, type=type, reference=reference)
@@ -111,7 +116,7 @@ class Citation(UUIDBaseNode):
     @beartype
     def type(self) -> str:
         """
-        Citation type subobject
+        Citation type sub-object
 
         Citation type must come from [CRIPT Controlled Vocabulary](https://app.criptapp.org/vocab/citation_type)
 
@@ -217,7 +222,7 @@ class Citation(UUIDBaseNode):
     @beartype
     def reference(self, new_reference: Reference) -> None:
         """
-        replace the current Reference node for the citation subobject
+        replace the current Reference node for the citation sub-object
 
         Parameters
         ----------

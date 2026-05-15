@@ -16,27 +16,13 @@ class SoftwareConfiguration(UUIDBaseNode):
     The [software_configuration](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=24)
     sub-object includes software and the set of algorithms to execute computation or computational_process.
 
-    ---
-
-    ## Can Be Added To:
-    * [Computation](../../primary_nodes/computation)
-    * [Computation_Process](../../primary_nodes/computation_process)
-
-    ## Available sub-objects:
-    * [Algorithm](../algorithm)
-    * [Citation](../citation)
-
-    ---
-
     ## Attributes
-
     | keys                                             | type            | example | description                                                      | required | vocab |
     |--------------------------------------------------|-----------------|---------|------------------------------------------------------------------|----------|-------|
     | software                                         | Software        |         | software used                                                    | True     |       |
     | algorithms                                       | list[Algorithm] |         | algorithms used                                                  |          |       |
     | notes                                            | str             |         | miscellaneous information, or custom data structure (e.g.; JSON) |          |       |
     | citation                                         | list[Citation]  |         | reference to a book, paper, or scholarly work                    |          |       |
-
 
     ## JSON Representation
     ```json
@@ -53,6 +39,18 @@ class SoftwareConfiguration(UUIDBaseNode):
        }
     }
     ```
+
+    ---
+
+    ## Valid Parent Nodes
+    * [Computation](../../primary_nodes/computation)
+    * [Computation_Process](../../primary_nodes/computation_process)
+
+    ## Valid Sub-objects
+    * [Algorithm](../algorithm)
+    * [Citation](../citation)
+
+    ---
     """
 
     @dataclass(frozen=True)

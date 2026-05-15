@@ -8,25 +8,13 @@ from cript.nodes.uuid_base import UUIDBaseNode
 class Software(UUIDBaseNode):
     """
     ## Definition
-
     The [Software](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=16)
     node contains metadata for a computation tool, code, programming language, or software package.
 
     Similar to the [reference](../../primary_nodes/reference) node, the software node does not contain the base
     attributes and is meant to always be public and static.
 
-    ---
-
-    ## Can Be Added To:
-    * [Software_Configuration](../../subobjects/software_configuration)
-
-    ## Available sub-objects
-    * None
-
-    ---
-
     ## Attributes
-
     | attribute | type | example    | description                   | required | vocab |
     |-----------|------|------------|-------------------------------|----------|-------|
     | name      | str  | LAMMPS     | type of literature            | True     |       |
@@ -44,6 +32,16 @@ class Software(UUIDBaseNode):
        "uuid":"f2ec4bf2-96aa-48a3-bfbc-d1d3f090583b",
     }
     ```
+
+    ---
+
+    ## Valid Parent Nodes
+    * [Software_Configuration](../../subobjects/software_configuration)
+
+    ## Valid Sub-object
+    * `None`
+
+    ---
     """
 
     @dataclass(frozen=True)

@@ -14,19 +14,7 @@ class Ingredient(UUIDBaseNode):
     An [Ingredient](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=22)
     sub-objects are links to material nodes with the associated quantities.
 
-    ---
-
-    ## Can Be Added To:
-    * [process](../../primary_nodes/process)
-    * [computation_process](../../primary_nodes/computation_process)
-
-    ## Available sub-objects:
-    * [Quantity](../quantity)
-
-    ---
-
     ## Attributes
-
     | attribute  | type           | example  | description            | required | vocab |
     |------------|----------------|----------|------------------------|----------|-------|
     | material   | Material       |          | material               | True     |       |
@@ -61,6 +49,17 @@ class Ingredient(UUIDBaseNode):
        ]
     }
     ```
+
+    ---
+
+    ## Valid Parent Nodes
+    * [process](../../primary_nodes/process)
+    * [computation_process](../../primary_nodes/computation_process)
+
+    ## Valid Sub-objects
+    * [Quantity](../quantity)
+
+    ---
     """
 
     @dataclass(frozen=True)
@@ -170,7 +169,7 @@ class Ingredient(UUIDBaseNode):
         new_material : Material
             new material node to replace the current
         new_quantity : List[Quantity]
-            new list of quantity sub-objects to replace the current quantity subobject on this node
+            new list of quantity sub-objects to replace the current quantity sub-object on this node
 
         Returns
         -------

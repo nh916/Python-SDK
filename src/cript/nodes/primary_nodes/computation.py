@@ -22,8 +22,6 @@ class Computation(PrimaryBaseNode):
     to determine rate constants, a plateau modulus from a time-temperature-superposition, or calculating radius of
     gyration with the Debye function from small angle scattering data.
 
-
-
     ## Attributes
     | attribute                | type                          | example                               | description                                   | required | vocab |
     |--------------------------|-------------------------------|---------------------------------------|-----------------------------------------------|----------|-------|
@@ -48,12 +46,17 @@ class Computation(PrimaryBaseNode):
     }
     ```
 
+    ---
+    ## Valid Parent Nodes
+    * [Data](../data)
+    * [Experiment](../data)
 
-    ## Available Subobjects
+    ## Valid Sub-objects
     * [Software Configuration](../../subobjects/software_configuration)
     * [Condition](../../subobjects/condition)
     * [Citation](../../subobjects/citation)
 
+    ---
     """
 
     @dataclass(frozen=True)

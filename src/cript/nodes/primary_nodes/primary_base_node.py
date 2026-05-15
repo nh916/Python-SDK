@@ -42,12 +42,14 @@ class PrimaryBaseNode(UUIDBaseNode, ABC):
 
         Examples
         --------
+        ```python
         {
-        'locked': False,
-        'model_version': '',
-        'public': False,
-        'notes': ''
+            'locked': False,
+            'model_version': '',
+            'public': False,
+            'notes': ''
         }
+        ```
 
 
         Returns

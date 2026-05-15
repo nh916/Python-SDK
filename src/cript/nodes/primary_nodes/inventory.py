@@ -50,7 +50,14 @@ class Inventory(PrimaryBaseNode):
     }
     ```
 
+    ---
+    ## Valid Parent Nodes
+    * [Collection](../collection)
 
+    ## Valid Sub-object
+    * `None`
+
+    ---
     """
 
     @dataclass(frozen=True)

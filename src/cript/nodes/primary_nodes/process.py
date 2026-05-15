@@ -12,9 +12,9 @@ class Process(PrimaryBaseNode):
     The process node contains a list of [ingredients](../../subobjects/ingredient),
     [quantities](../../subobjects/quantity), and procedure information for an experimental
     [material](../material) transformation (chemical and physical).
+    A `Process` node can be added to an [`experiment`](../experiment) node
 
     ## Attributes
-
     | attribute               | type             | example                                                                         | description                                                         | required | vocab |
     |-------------------------|------------------|---------------------------------------------------------------------------------|---------------------------------------------------------------------|----------|-------|
     | type                    | str              | mix                                                                             | type of process                                                     | True     | True  |
@@ -30,16 +30,6 @@ class Process(PrimaryBaseNode):
     | citation                | list[Citation]   |                                                                                 | reference to a book, paper, or scholarly work                       |          |       |
     | notes                   | str              |                                                                                 | miscellaneous information, or custom data structure                 |          |       |
 
-    ## Can be added to
-    * [Experiment](../experiment)
-
-    ## Available Subobjects
-    * [Ingredient](../../subobjects/ingredient)
-    * [Equipment](../../subobjects/equipment)
-    * [Property](../../subobjects/property)
-    * [Condition](../../subobjects/condition)
-    * [Citation](../../subobjects/citation)
-
     ## JSON Representation
     ```json
     {
@@ -51,6 +41,19 @@ class Process(PrimaryBaseNode):
        "uuid":"f8ef33f3-677a-40f3-b24e-65ab2c99d796"
     }
     ```
+
+    ---
+    ## Valid Parent Nodes
+    * [Experiment](../experiment)
+
+    ## Valid Sub-objects
+    * [Ingredient](../../subobjects/ingredient)
+    * [Equipment](../../subobjects/equipment)
+    * [Property](../../subobjects/property)
+    * [Condition](../../subobjects/condition)
+    * [Citation](../../subobjects/citation)
+
+    ---
     """
 
     @dataclass(frozen=True)

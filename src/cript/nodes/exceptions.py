@@ -59,22 +59,74 @@ class CRIPTJsonDeserializationError(CRIPTException):
     ## Definition
     This exception is raised when converting a node from JSON to Python class fails.
     This process fails when the attributes within the JSON does not match the node's class
-    attributes within the `JsonAttributes` of that specific node
+    attributes within the `JsonAttributes` of that specific node.
 
-    ### Error Example
-    Invalid JSON that cannot be deserialized to a CRIPT Python SDK Node
+    ### Examples
 
+    #### Invalid Example:
     ```json
+    {
+        "node":["Material"],
+        "name":"my unique material name",
+        "uid":"_:9679ff12-f9b4-41f4-be95-080b78fa71fd",
+        "uuid":"9679ff12-f9b4-41f4-be95-080b78fa71fd",
+        "bigsmiles":"[H]{[>][<]C(C[>])c1ccccc1[]}",
+        "identifier": "not a list so this will fail deserialization"
+    }
     ```
 
-
-    ### Valid Example
-    Valid JSON that can be deserialized to a CRIPT Python SDK Node
-
+    #### Valid Example:
     ```json
+    {
+        "node":["Material"],
+        "name":"my unique material name",
+        "uid":"_:9679ff12-f9b4-41f4-be95-080b78fa71fd",
+        "uuid":"9679ff12-f9b4-41f4-be95-080b78fa71fd",
+        "bigsmiles":"[H]{[>][<]C(C[>])c1ccccc1[]}",
+        "identifier": [
+            {"cas": "7732-18-5"}
+        ]
+    }
     ```
 
     ## Troubleshooting
+    This error usually means the JSON contains a valid CRIPT node type, but one or more of its fields
+    do not match the Python SDK class definition for that node.
+
+    To troubleshoot, compare the JSON fields against the node's expected attributes.
+
+    Common causes include:
+
+    1. A field has the wrong type
+        * Example: `identifier` should be a list of dictionaries, not a string.
+    1. A field name is incorrect
+        * Example: using `identifiers` instead of `identifier`.
+    1. A required field is missing
+        * Example: a node is missing `name`, `key`, `type`, or another required attribute.
+    1. The JSON contains an unexpected extra field
+        * This can happen if the API returns a newer field that the installed SDK version does not recognize.
+    1. A nested child node is malformed
+        * The top-level node may look correct, but one of its child nodes may fail deserialization.
+
+    ### Debugging Steps
+
+    First, inspect the JSON shown in the error message and identify the node type that failed.
+
+    Then check whether the JSON fields match the expected Python SDK node attributes.
+
+    ```python
+    import json
+
+    print(json.dumps(my_node_json, indent=2))
+    ```
+
+    If the JSON came from the API, make sure your Python SDK version is compatible with the API response.
+    If the JSON was manually created or modified, verify that every field uses the expected name and type.
+
+    If the JSON appears valid but still fails, this may indicate a mismatch between the SDK and API schema.
+    In that case, please open an issue or discussion in the
+    [Python SDK GitHub repository](https://github.com/C-Accel-CRIPT/Python-SDK)
+    and include the failing JSON, SDK version, and full traceback.
     """
 
     def __init__(self, node_type: str, json_str: str) -> None:
@@ -167,6 +219,8 @@ class CRIPTJsonNodeError(CRIPTJsonDeserializationError):
           "uid": "_:Whey protein isolate"
         },
         ```
+        > This example is invalid because it contains multiple node types for a single node.
+        > The `node` field should contain exactly one node type.
 
         ---
 
@@ -177,6 +231,8 @@ class CRIPTJsonNodeError(CRIPTJsonDeserializationError):
           "uid": "_:Whey protein isolate"
         },
         ```
+        > This example is invalid because it does not contain any node type.
+        > The `node` field should contain exactly one node type.
 
 
     ## Troubleshooting

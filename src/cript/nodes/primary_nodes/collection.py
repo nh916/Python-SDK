@@ -47,6 +47,15 @@ class Collection(PrimaryBaseNode):
      "citation":[],
     }
     ```
+
+    ---
+    ## Valid Parent Nodes
+    * [Project](../project)
+
+    ## Valid Sub-objects
+    * None
+
+    ---
     """
 
     @dataclass(frozen=True)

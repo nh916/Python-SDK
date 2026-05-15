@@ -11,6 +11,8 @@ class Material(PrimaryBaseNode):
     """
     ## Definition
     A [Material node](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=10)
+    represents a real material such as: water, brine (water + NaCl), polystyrene, polyethylene glycol hydrogels.
+    The [Material node](https://pubs.acs.org/doi/suppl/10.1021/acscentsci.3c00011/suppl_file/oc3c00011_si_001.pdf#page=10)
     is a collection of the identifiers and properties of a chemical, mixture, or substance.
 
     ## Attributes
@@ -29,30 +31,32 @@ class Material(PrimaryBaseNode):
     Materials can be easily found on the [CRIPT](https://app.criptapp.org) home screen in the
     under the navigation within the [Materials link](https://app.criptapp.org/material/)
 
-    ## Available Sub-Objects for Material
-    * [Identifier](../../subobjects/identifier)
-    * [Property](../../subobjects/property)
-    * [Computational_forcefield](../../subobjects/computational_forcefield)
-
-    Example
-    -------
-     water, brine (water + NaCl), polystyrene, polyethylene glycol hydrogels, vulcanized polyisoprene, mcherry (protein), and mica
-
-
-    Warnings
-    -------
-    !!! warning "Material names"
-        Material names Must be unique within a [Project](../project)
-
+    ## JSON Representation
     ```json
       {
          "node":["Material"],
          "name":"my unique material name",
          "uid":"_:9679ff12-f9b4-41f4-be95-080b78fa71fd",
-         "uuid":"9679ff12-f9b4-41f4-be95-080b78fa71fd"
+         "uuid":"9679ff12-f9b4-41f4-be95-080b78fa71fd",
          "bigsmiles":"[H]{[>][<]C(C[>])c1ccccc1[]}",
       }
     ```
+
+    ---
+    ## Valid Parent Nodes
+    * [Project](../project)
+    * [Inventory](../inventory)
+
+    ## Valid Sub-Objects
+    * [Identifier](../../subobjects/identifier)
+    * [Property](../../subobjects/property)
+    * [Computational_forcefield](../../subobjects/computational_forcefield)
+
+    ---
+
+    Warnings
+    -------
+    Material names Must be unique within a [Project](../project)
     """
 
     @dataclass(frozen=True)
@@ -423,9 +427,7 @@ class Material(PrimaryBaseNode):
             * If the `identifier` property is not present in the JSON dictionary,
             it will be set to an empty list.
         """
-        from cript.nodes.util.material_deserialization import (
-            _deserialize_flattened_material_identifiers,
-        )
+        from cript.nodes.util.material_deserialization import _deserialize_flattened_material_identifiers
 
         json_dict = _deserialize_flattened_material_identifiers(json_dict)
 

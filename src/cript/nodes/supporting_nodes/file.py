@@ -100,7 +100,7 @@ class File(PrimaryBaseNode):
     | data_dictionary | str  | `"my extra info in my data dictionary"`                                                               | set of information describing the contents, format, and structure of a file | False    |
     | notes           | str  |                                                                                                       | miscellaneous information, or custom data structure (e.g.; JSON)            |          |
 
-    ## JSON
+    ## JSON Representation
     ``` json
     {
         "node": ["File"],
@@ -111,6 +111,17 @@ class File(PrimaryBaseNode):
         "data_dictionary": "my file's data dictionary",
     }
     ```
+
+    ---
+
+    ## Valid Parent Nodes
+    * [Data](../primary_nodes/data.md)
+    * [Equipment](../subobjects/equipment.md)
+
+    ## Valid sub-objects
+    * `None`
+
+    ---
     """
 
     @dataclass(frozen=True)

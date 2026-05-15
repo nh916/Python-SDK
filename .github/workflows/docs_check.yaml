@@ -4,18 +4,17 @@ name: MkDocs CI Check
 permissions: read-all
 
 on:
-  # push:
-  #   branches:
-  #     - main
-  #     - develop
-  #     - "*"
-  #     - trunk-merge/**
-  # pull_request:
-  #   branches:
-  #     - main
-  #     - develop
-  #     - "*"
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - develop
+      - "*"
+      - trunk-merge/**
+  pull_request:
+    branches:
+      - main
+      - develop
+      - "*"
 
 jobs:
   build:

@@ -249,7 +249,7 @@ class Algorithm(UUIDBaseNode):
     @citation.setter
     def citation(self, new_citation: List[Citation]) -> None:
         """
-        set the algorithm citation su-bobject
+        set the algorithm citation sub-object
 
         Parameters
         ----------

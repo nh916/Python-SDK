@@ -7,16 +7,16 @@ on:
   # trunk-ignore(yamllint/empty-values)
   workflow_dispatch:
 
-  push:
-    branches:
-      - main
-      - develop
-      - trunk-merge/**
-  pull_request:
-    branches:
-      - main
-      - develop
-      - "*"
+  # push:
+  #   branches:
+  #     - main
+  #     - develop
+  #     - trunk-merge/**
+  # pull_request:
+  #   branches:
+  #     - main
+  #     - develop
+  #     - "*"
 
 jobs:
   install:

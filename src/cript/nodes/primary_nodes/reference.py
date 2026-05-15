@@ -59,8 +59,8 @@ class Reference(UUIDBaseNode):
     ## Valid Parent Nodes
     * [Citation](../../subobjects/citation)
 
-    ## Accepted Subobjects
-    * None
+    ## Valid Sub-objects
+    * `None`
 
     ---
 

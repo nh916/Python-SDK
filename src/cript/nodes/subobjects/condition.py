@@ -282,7 +282,7 @@ class Condition(UUIDBaseNode):
         Parameters
         ----------
         new_descriptor : str
-            new description describing the Condition subobject
+            new description describing the Condition sub-object
 
         Returns
         -------
@@ -306,7 +306,7 @@ class Condition(UUIDBaseNode):
 
     def set_value(self, new_value: Union[Number, str], new_unit: str) -> None:
         """
-        set the value for this Condition subobject
+        set the value for this Condition sub-object
 
         Parameters
         ----------
@@ -337,7 +337,7 @@ class Condition(UUIDBaseNode):
     @beartype
     def unit(self) -> str:
         """
-        set units for this Condition subobject
+        set units for this Condition sub-object
 
         Returns
         -------
@@ -350,7 +350,7 @@ class Condition(UUIDBaseNode):
     @beartype
     def uncertainty(self) -> Optional[Union[Number, str]]:
         """
-        set uncertainty value for this Condition subobject
+        set uncertainty value for this Condition sub-object
 
         Returns
         -------
@@ -432,7 +432,7 @@ class Condition(UUIDBaseNode):
     @beartype
     def set_id(self, new_set_id: Union[int, None]) -> None:
         """
-         set this Condition subobjects set_id
+         set this Condition sub-objects set_id
 
         Parameters
         ----------
@@ -474,7 +474,7 @@ class Condition(UUIDBaseNode):
     @beartype
     def measurement_id(self, new_measurement_id: Union[int, None]) -> None:
         """
-        set the set_id for this Condition subobject
+        set the set_id for this Condition sub-object
 
         Examples
         --------
@@ -538,7 +538,7 @@ class Condition(UUIDBaseNode):
     @beartype
     def data(self, new_data: List[Data]) -> None:
         """
-        set the data node for this Condition Subobject
+        set the data node for this Condition sub-object
 
         Parameters
         ----------

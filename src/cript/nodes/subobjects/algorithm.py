@@ -213,7 +213,7 @@ class Algorithm(UUIDBaseNode):
     @property
     def citation(self) -> Citation:
         """
-        [citation](../citation) subobject for algorithm subobject
+        [citation](../citation) sub-object for algorithm sub-object
 
         Examples
         --------
@@ -249,12 +249,12 @@ class Algorithm(UUIDBaseNode):
     @citation.setter
     def citation(self, new_citation: List[Citation]) -> None:
         """
-        set the algorithm citation subobject
+        set the algorithm citation su-bobject
 
         Parameters
         ----------
         new_citation : Citation
-            new citation subobject to replace the current
+            new citation sub-object to replace the current
 
         Returns
         -------

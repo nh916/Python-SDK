@@ -118,7 +118,7 @@ class File(PrimaryBaseNode):
     * [Data](../primary_nodes/data.md)
     * [Equipment](../subobjects/equipment.md)
 
-    ## Valid Subobjects
+    ## Valid sub-objects
     * `None`
 
     ---

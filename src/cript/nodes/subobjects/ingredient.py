@@ -169,7 +169,7 @@ class Ingredient(UUIDBaseNode):
         new_material : Material
             new material node to replace the current
         new_quantity : List[Quantity]
-            new list of quantity sub-objects to replace the current quantity subobject on this node
+            new list of quantity sub-objects to replace the current quantity sub-object on this node
 
         Returns
         -------

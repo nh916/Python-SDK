@@ -46,6 +46,8 @@ class NodeEncoder(json.JSONEncoder):
         # Convert CRIPT nodes and other objects to their JSON representation.
     ```
 
+    ---
+
     ```python
     _apply_modifications(self, serialize_dict: dict) -> Tuple[dict, List[str]]:
         # Apply modifications to the serialized dictionary based on node types
